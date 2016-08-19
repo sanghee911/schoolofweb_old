@@ -1,0 +1,13 @@
+*.pyc
+__pycache__
+myvenv
+db.sqlite3
+.DS_Store
+.idea
+namutech_db/settings.py
+manage.py
+*/migrations/0*
+sandbox
+*json
+static
+venv

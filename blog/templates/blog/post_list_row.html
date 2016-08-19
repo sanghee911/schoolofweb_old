@@ -1,0 +1,26 @@
+<div class="row post-row">
+    <div class="col-sm-4">
+        <img class="img-responsive article-thumbnail" src="{{ post.thumbnail.url }}" alt="">
+    </div>
+    <div class="col-sm-8">
+        <div class="article-tag-block">
+            {% if post.tag.count > 0 %}
+                {% for tag in post.tag.all %}
+                    <a href="{{ tag.get_absolute_url }}"><span class="article-tag">{{ tag }}</span></a>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <h2 class="article-title">
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </h2>
+        <div class="article-meta">
+            <img class="img-author img-circle" src="{{ post.user.profile.profile_picture.url }}" alt="">
+            <span class="author">Written by {{ post.created_by.profile.full_name }}</span> |
+            <span class="published-date">{{ post.created_at | date:"M d, Y" | upper }}</span>
+        </div>
+        <div class="excerpt">
+            {{ post.content | safe | truncatechars_html:200 }}
+        </div>
+        <a class="read-more" href="{{ post.get_absolute_url }}">Read more</a>
+    </div>
+</div>

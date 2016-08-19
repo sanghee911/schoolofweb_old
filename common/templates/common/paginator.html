@@ -1,0 +1,41 @@
+{# Variables passed from paginator_tags.py #}
+{# paginator, page_obj, page_range, is_paginated, total_pages, current_page #}
+{% if is_paginated %}
+<nav class="text-center">
+    <ul class="pagination pagination-sm">
+    {% if total_pages > 1 %}
+        {% if current_page != 1 %}
+            <li class="page-item"><a class="first-last" href="?page=1">First</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="first-last" href="?page=1">First</a></li>
+        {% endif %}
+    {% endif %}
+    {% if page_obj.has_previous %}
+        <li class="page-item"><a class="pre-next" href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
+    {% else %}
+        <li class="page-item disabled"><a class="pre-next" href="">Prev</a></li>
+    {% endif %}
+    {% for page in page_range %}
+        {% if page %}
+            {% ifequal page current_page %}
+                <li class="page-item active"><a href="#">{{ page }}</a></li>
+            {% else %}
+                <li><a href="?page={{ page }}">{{ page }}</a></li>
+            {% endifequal %}
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <li class="page-item"><a class="pre-next" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+    {% else %}
+        <li class="page-item disabled"><a class="pre-next" href="">Next</a></li>
+    {% endif %}
+    {% if total_pages > 1 %}
+        {% if current_page != total_pages %}
+            <li class="page-item"><a class="first-last" href="?page={{ total_pages }}">Last</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="first-last" href="?page={{ total_pages }}">Last</a></li>
+        {% endif %}
+    {% endif %}
+    </ul>
+</nav>
+{% endif %}

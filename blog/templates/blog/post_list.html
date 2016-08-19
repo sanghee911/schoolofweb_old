@@ -1,0 +1,35 @@
+{% extends 'blog/blog_base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load paginator_tags %}
+{% block title %}Post List{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'blog/css/curtis.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/btn_outline.css' %}">
+{% endblock css %}
+{% block js-top %}
+    <script src="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}"></script>
+{% endblock js-top %}
+{% block content %}
+    <div class="container-fluid post-list">
+        <div class="row">
+            <div class="col-md-8 main">
+            {% if query %}
+                <h4 class="query-result">"{{ query }}" 검색 결과 <small>{{ post_list.count }} articles</small></h4>
+            {% endif %}
+                {% if post_list.count > 0 %}
+                    {% for post in post_list %}
+                        {% if post.published == 'published' and post.published_time < now %}
+                            {% include 'blog/post_list_row.html' %}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning no-post" role="alert">포스트가 없습니다.</div>
+                {% endif %}
+                {% get_pagination %}
+            </div>
+            {% include 'blog/sidebar.html' %}
+        </div>
+    </div>
+{% endblock content %}
