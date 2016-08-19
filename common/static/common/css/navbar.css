@@ -1,0 +1,62 @@
+/*  =====================================
+     Navigation
+    =====================================   */
+/* navy #34495E */
+/* django-dark-green #0C4B33 */
+/* django-green #44B78B */
+/* django-light-green #C9F0DD */
+.navbar.navbar-default.navbar-fixed-top {
+    top: 0;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    background-color: white;
+    /*border-bottom: 1px solid #0C4B33;*/
+    border-bottom: 1px solid #0C4B33;
+}
+.navbar-default .navbar-nav li a {
+    /*color: #0C4B33;*/
+    color: #0C4B33;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.navbar-default .navbar-brand {
+    /*color: #0C4B33;*/
+    color: #0C4B33;
+    text-transform: uppercase;
+    font-family: impact, arial, helvetica, sans-serif;
+    font-size: 1.5em;
+}
+.navbar-default .navbar-nav li a:hover {
+    top: -1px;
+}
+.navbar-default .navbar-nav li.current-menu-item a {
+    color: #44B78B;
+}
+.navbar-default .navbar-nav li a {
+    color: #0C4B33;
+}
+.navbar-default .navbar-brand {
+    color: #0C4B33;
+}
+.navbar-default .navbar-brand:hover {
+    color: #44B78B;
+}
+.navbar-default .navbar-nav li a.active {
+    color: deepskyblue;
+}
+body.home .navbar.navbar-default.navbar-fixed-top {
+    border-bottom: 1px solid #ccc;
+    background-color: rgba(255,255,255,0.1);
+}
+body.home .navbar-default .navbar-nav li.current-menu-item a {
+    color: deepskyblue;
+}
+body.home .navbar-default .navbar-nav li a {
+    color: #ccc;
+}
+body.home .navbar-default .navbar-brand {
+    color: #ccc;
+}
+body.home .navbar-default .navbar-brand:hover {
+    color: #39B54A;
+}

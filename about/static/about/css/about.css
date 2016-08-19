@@ -1,0 +1,23 @@
+/* navy #34495E */
+/* django-dark-green #0C4B33 */
+/* django-green #44B78B */
+/* django-light-green #C9F0DD */
+.about-header-img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.container p {
+    color: #0C4B33;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    margin: 30px 0;
+}
+.container ul li, .container ul li a {
+    color: #6A0E0E;
+    font-size: 1.1em;
+}
+.container ul li a:hover, .container ul li a:focus {
+    background: #F1FFF7;
+    color: #BA2121;
+}
