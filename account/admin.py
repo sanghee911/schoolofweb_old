@@ -21,6 +21,7 @@ class UserProfileAdmin(UserAdmin):
     def save_model(self, request, obj, form, change):
         user_profile = obj.profile
         user_profile.save()
+        obj.save()
 
 # Re-register UserAdmin
 admin.site.unregister(User)
