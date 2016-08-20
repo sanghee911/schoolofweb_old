@@ -148,6 +148,7 @@ CKEDITOR_CONFIGS = {
         'tabSpaces': 4,
         'height': '500px',
         'codeSnippet_theme': 'railscasts',
+        'allowedContent': True,
         'extraPlugins': ','.join(
             [
                 # your extra plugins here
@@ -159,3 +160,5 @@ CKEDITOR_CONFIGS = {
             ]),
     }
 }
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'

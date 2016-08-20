@@ -1,6 +1,41 @@
 .content-block {
     margin: 50px 0;
 }
+note, .admonition, .help-block {
+    background: #F1FFF7;
+    padding: 15px 20px 15px 70px;
+    border: 1px solid #C9F0DD;
+    border-radius: 4px;
+    margin: 25px 0;
+    position: relative;
+}
 
 
+.admonition-title, .help-block .admonition-title {
+    font-weight: bold;
+}
 
+.note .admonition-title::before, .admonition .admonition-title::before, .help-block .admonition-title::before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    width: 34px;
+    text-align: center;
+    content: "\f0f6";
+    opacity: 0.5;
+}
+.note .first, .admonition .first, .help-block .first {
+    margin-top: 0;
+}
+.note .last, .note .highlight, .admonition .last, .admonition .highlight, .help-block .last, .help-block .highlight {
+    margin-bottom: 0;
+}
+.note p, .admonition p, .help-block p {
+    margin: 0.8em 0;
+}
