@@ -1,6 +1,7 @@
 .content-block {
     margin: 50px 0;
 }
+
 note, .admonition, .help-block {
     background: #F1FFF7;
     padding: 15px 20px 15px 70px;
@@ -10,12 +11,13 @@ note, .admonition, .help-block {
     position: relative;
 }
 
-
 .admonition-title, .help-block .admonition-title {
     font-weight: bold;
 }
 
-.note .admonition-title::before, .admonition .admonition-title::before, .help-block .admonition-title::before {
+.note .admonition-title::before,
+.admonition .admonition-title::before,
+.help-block .admonition-title::before {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     text-rendering: auto;
@@ -30,21 +32,35 @@ note, .admonition, .help-block {
     content: "\f0f6";
     opacity: 0.5;
 }
-.note .first, .admonition .first, .help-block .first {
+
+.note .first, .admonition .first,
+.help-block .first {
     margin-top: 0;
 }
-.note .last, .note .highlight, .admonition .last, .admonition .highlight, .help-block .last, .help-block .highlight {
+
+.note .last, .note .highlight,
+.admonition .last, .admonition .highlight,
+.help-block .last, .help-block .highlight {
     margin-bottom: 0;
 }
-.note p, .admonition p, .help-block p {
+
+.note p,
+.admonition p,
+.help-block p {
     margin: 0.8em 0;
 }
-.content-block p a {
+
+.content-block p a,
+.content-block li a {
     color: #6A0E0E;
     text-decoration: none;
     border-bottom: 1px dotted #798780;
 }
-.content-block p a:focus, .content-block p a:hover {
+
+.content-block p a:focus,
+.content-block p a:hover,
+.content-block li a:focus,
+.content-block li a:hover {
     background: #F1FFF7;
     color: #BA2121;
 }
