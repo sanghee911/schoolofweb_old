@@ -39,12 +39,12 @@ note, .admonition, .help-block {
 .note p, .admonition p, .help-block p {
     margin: 0.8em 0;
 }
-a.reference {
+.content-block p a {
     color: #6A0E0E;
     text-decoration: none;
     border-bottom: 1px dotted #798780;
 }
-a.reference:focus, a.reference:hover {
+.content-block p a:focus, .content-block p a:hover {
     background: #F1FFF7;
     color: #BA2121;
 }
