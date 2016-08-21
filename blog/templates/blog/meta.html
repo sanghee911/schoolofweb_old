@@ -1,37 +1,9 @@
-<div class="meta">
-    <p class="author text-muted">
-        <span class="created-by">Written by</span>
-        <span class="user">{{ post.created_by.first_name }} {{ post.created_by.last_name }} | </span>
-        <span class="date">{{ post.published_time.date | date:"M d, Y" | upper }}</span>
-    </p>
-
-    <p class="post-category">
-        <i class="fa fa-folder-open-o"></i>
-        {% if post.category.count > 0 %}
-            {% for category in post.category.all %}
-                {% if not forloop.last %}
-                    <a href="{{ category.get_absolute_url }}">{{ category.title }}</a> |
-                {% else %}
-                    <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            Uncategorized
-        {% endif %}
-    </p>
-
-    <p class="post-tag">
-        <i class="fa fa-tags"></i>
-        {% if post.tag.count > 0 %}
-            {% for tag in post.tag.all %}
-                {% if not forloop.last %}
-                    <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a> |
-                {% else %}
-                    <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            No tags attached
-        {% endif %}
-    </p>
+<div class="article-meta">
+    <img class="img-author img-circle" src="{{ post.user.profile.profile_picture.url }}" alt="">
+    <span class="author">Written by {{ post.created_by.profile.full_name }}</span> |
+    <span class="published-date">{{ post.created_at | date:"M d, Y" | upper }}</span> |
+    <span>{{ post.hitcount }} views</span>
+    {% if user.is_superuser %}
+        | <span class="post-status">{{ post.published }}</span>
+    {% endif %}
 </div>

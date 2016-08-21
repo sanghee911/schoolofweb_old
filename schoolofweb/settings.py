@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # third-part apps
     'ckeditor',
     'ckeditor_uploader',
+    'hitcount',
 
     # my apps
     'account',
@@ -162,3 +163,9 @@ CKEDITOR_CONFIGS = {
 }
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
+
+HITCOUNT_KEEP_HIT_ACTIVE = {'minutes': 60}
+HITCOUNT_HITS_PER_IP_LIMIT = 0  # unlimited
+HITCOUNT_EXCLUDE_USER_GROUP = ('admin',)  # not used
+HITCOUNT_KEEP_HIT_IN_DATABASE = {'seconds': 10}

@@ -1,9 +1,9 @@
-from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.db.models import Q
-from .models import Post, Category, Tag
 from django.utils import timezone
+from hitcount.views import HitCountDetailView
+from .models import Post, Category, Tag
 
 
 class PostListView(ListView):
@@ -11,43 +11,90 @@ class PostListView(ListView):
     paginate_by = 5
 
     def get_context_data(self, **kwargs):
+        now = timezone.now()
         context = super(PostListView, self).get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
+        context['category_post'] = []
+        for category in context['category_list']:
+            if self.request.user.is_superuser:
+                category_post = category.category_post.all()
+            else:
+                category_post = category.category_post.filter(published='published').filter(published_time__lte=now)
+            category_post_count = category_post.count()
+            context['category_post'].append((category, category_post_count))
+
         context['tag_list'] = Tag.objects.all()
+        context['tag_post'] = []
+        for tag in context['tag_list']:
+            if self.request.user.is_superuser:
+                tag_post = tag.tag_post.all()
+            else:
+                tag_post = tag.tag_post.filter(published='published').filter(published_time__lte=now)
+            tag_post_count = tag_post.count()
+            context['tag_post'].append((tag, tag_post_count))
+
         context['page_type'] = 'post_list'
         context['query'] = self.request.GET.get('q')
         context['now'] = timezone.now()
         context['page'] = 'blog'
+        queries_without_page = self.request.GET.copy()
+
+        if 'page' in queries_without_page:
+            del queries_without_page['page']
+        context['queries'] = queries_without_page
 
         return context
 
     def get_queryset(self):
         now = timezone.now()
         qs = super(PostListView, self).get_queryset()
-        qs = qs.filter(published='published').filter(published_time__lte=now)
+
+        if not self.request.user.is_superuser:
+            qs = qs.filter(published='published').filter(published_time__lte=now)
         query = self.request.GET.get('q')
+
         if query:
-            qs = self.model.objects.filter(
+            qs = qs.filter(
                 Q(title__icontains=query) |
                 Q(content__icontains=query) |
                 Q(tag__title__icontains=query) |
                 Q(category__title__icontains=query) |
                 Q(user__userprofile__full_name__icontains=query)
-            )
+            ).distinct()
 
         return qs
 
 
-class PostDetailView(DetailView):
+class PostDetailView(HitCountDetailView):
     model = Post
+    count_hit = True
 
     def get_context_data(self, **kwargs):
+        now = timezone.now()
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
         context['tag_list'] = Tag.objects.all()
         context['page_type'] = 'single'
         context['query'] = self.request.GET.get('q')
         context['page'] = 'blog'
+
+        context['category_post'] = []
+        for category in context['category_list']:
+            if self.request.user.is_superuser:
+                category_post = category.category_post.all()
+            else:
+                category_post = category.category_post.filter(published='published').filter(published_time__lte=now)
+            category_post_count = category_post.count()
+            context['category_post'].append((category, category_post_count))
+
+        context['tag_post'] = []
+        for tag in context['tag_list']:
+            if self.request.user.is_superuser:
+                tag_post = tag.tag_post.all()
+            else:
+                tag_post = tag.tag_post.filter(published='published').filter(published_time__lte=now)
+            tag_post_count = tag_post.count()
+            context['tag_post'].append((tag, tag_post_count))
 
         return context
 
@@ -61,7 +108,7 @@ class PostDetailView(DetailView):
                 Q(tag__title__icontains=query) |
                 Q(category__title__icontains=query) |
                 Q(user__userprofile__full_name__icontains=query)
-            )
+            ).distinct()
 
         return qs
 
@@ -71,6 +118,7 @@ class CategoryDetailView(DetailView):
     template_name = 'blog/category_tag.html'
 
     def get_context_data(self, **kwargs):
+        now = timezone.now()
         context = super(CategoryDetailView, self).get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
         context['tag_list'] = Tag.objects.all()
@@ -78,6 +126,24 @@ class CategoryDetailView(DetailView):
         context['now'] = timezone.now()
         context['query'] = self.request.GET.get('q')
         context['page'] = 'blog'
+
+        context['category_post'] = []
+        for category in context['category_list']:
+            if self.request.user.is_superuser:
+                category_post = category.category_post.all()
+            else:
+                category_post = category.category_post.filter(published='published').filter(published_time__lte=now)
+            category_post_count = category_post.count()
+            context['category_post'].append((category, category_post_count))
+
+        context['tag_post'] = []
+        for tag in context['tag_list']:
+            if self.request.user.is_superuser:
+                tag_post = tag.tag_post.all()
+            else:
+                tag_post = tag.tag_post.filter(published='published').filter(published_time__lte=now)
+            tag_post_count = tag_post.count()
+            context['tag_post'].append((tag, tag_post_count))
 
         return context
 
@@ -91,7 +157,7 @@ class CategoryDetailView(DetailView):
                 Q(tag__title__icontains=query) |
                 Q(category__title__icontains=query) |
                 Q(user__userprofile__full_name__icontains=query)
-            )
+            ).distinct()
 
         return qs
 
@@ -101,6 +167,7 @@ class TagDetailView(DetailView):
     template_name = 'blog/category_tag.html'
 
     def get_context_data(self, **kwargs):
+        now = timezone.now()
         context = super(TagDetailView, self).get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
         context['tag_list'] = Tag.objects.all()
@@ -108,6 +175,24 @@ class TagDetailView(DetailView):
         context['now'] = timezone.now()
         context['query'] = self.request.GET.get('q')
         context['page'] = 'blog'
+
+        context['category_post'] = []
+        for category in context['category_list']:
+            if self.request.user.is_superuser:
+                category_post = category.category_post.all()
+            else:
+                category_post = category.category_post.filter(published='published').filter(published_time__lte=now)
+            category_post_count = category_post.count()
+            context['category_post'].append((category, category_post_count))
+
+        context['tag_post'] = []
+        for tag in context['tag_list']:
+            if self.request.user.is_superuser:
+                tag_post = tag.tag_post.all()
+            else:
+                tag_post = tag.tag_post.filter(published='published').filter(published_time__lte=now)
+            tag_post_count = tag_post.count()
+            context['tag_post'].append((tag, tag_post_count))
 
         return context
 

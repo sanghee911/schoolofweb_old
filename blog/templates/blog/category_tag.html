@@ -15,15 +15,23 @@
                 {% if page_type == 'category' %}
                     <h4 class="page-title">Category :: {{ category.title }}</h4>
                     {% for post in category.category_post.all %}
-                        {% if post.published == 'published' and post.published_time < now %}
+                        {% if user.is_superuser %}
                             {% include 'blog/post_list_row.html' %}
+                        {% else %}
+                            {% if post.published == 'published' and post.published_time < now %}
+                                {% include 'blog/post_list_row.html' %}
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 {% elif page_type == 'tag' %}
                     <h4 class="page-title">Tag :: {{ tag.title }}</h4>
                     {% for post in tag.tag_post.all %}
-                        {% if post.published == 'published' and post.published_time < now %}
+                        {% if user.is_superuser %}
                             {% include 'blog/post_list_row.html' %}
+                        {% else %}
+                            {% if post.published == 'published' and post.published_time < now %}
+                                {% include 'blog/post_list_row.html' %}
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 {% endif %}

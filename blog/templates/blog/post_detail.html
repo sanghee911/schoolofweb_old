@@ -1,5 +1,6 @@
 {% extends 'blog/blog_base.html' %}
 {% load staticfiles %}
+{% load hitcount_tags %}
 {% block title %}{{ object.title }}{% endblock title %}
 {% block css %}
 {{ block.super }}
@@ -11,11 +12,7 @@
             <div class="col-md-8 main">
                 <div class="title-block">
                     <h1 class="post-title">{{ object.title }}</h1>
-                    <div class="article-meta">
-                        <img class="img-author img-circle" src="{{ post.user.profile.profile_picture.url }}" alt="">
-                        <span class="author">Written by {{ post.created_by.profile.full_name }}</span> |
-                        <span class="published-date">{{ post.created_at | date:"M d, Y" | upper }}</span>
-                    </div>
+                    {% include 'blog/meta.html' %}
                     <div class="article-tag-block">
                         {% if post.tag.count > 0 %}
                             {% for tag in post.tag.all %}

@@ -16,13 +16,11 @@
         <div class="row">
             <div class="col-md-8 main">
             {% if query %}
-                <h4 class="query-result">"{{ query }}" 검색 결과 <small>{{ post_list.count }} articles</small></h4>
+                <h4 class="query-result">"{{ query }}" 검색 결과 <small>{{ paginator.count }} articles</small></h4>
             {% endif %}
                 {% if post_list.count > 0 %}
                     {% for post in post_list %}
-                        {% if post.published == 'published' and post.published_time < now %}
-                            {% include 'blog/post_list_row.html' %}
-                        {% endif %}
+                        {% include 'blog/post_list_row.html' %}
                     {% endfor %}
                 {% else %}
                     <div class="alert alert-warning no-post" role="alert">포스트가 없습니다.</div>

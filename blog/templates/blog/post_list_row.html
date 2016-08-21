@@ -13,11 +13,7 @@
         <h2 class="article-title">
             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </h2>
-        <div class="article-meta">
-            <img class="img-author img-circle" src="{{ post.user.profile.profile_picture.url }}" alt="">
-            <span class="author">Written by {{ post.created_by.profile.full_name }}</span> |
-            <span class="published-date">{{ post.created_at | date:"M d, Y" | upper }}</span>
-        </div>
+        {% include 'blog/meta.html' %}
         <div class="excerpt">
             {{ post.content | safe | truncatechars_html:200 }}
         </div>

@@ -13,6 +13,14 @@ def template_dir(this_object, its_name=""):
     return ""
 
 
+@register.simple_tag
+def replace_url(old_queries, new_queries):
+    if old_queries:
+        return '?%s&page=%s' % (old_queries, new_queries)
+    else:
+        return '?page=%s' % new_queries
+
+
 @register.filter(name='addcss')
 def addcss(field, css):
     return field.as_widget(attrs={"class": css})

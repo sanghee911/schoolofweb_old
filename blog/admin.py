@@ -5,7 +5,6 @@ from django.contrib import admin
 from slugify import slugify
 from .models import Post, Category, Tag
 import sys
-from django.contrib import admin
 
 
 reload(sys)
@@ -18,6 +17,7 @@ TO_FIELD_VAR = '_to_field'
 
 class PostAdmin(admin.ModelAdmin):
 
+    list_display = ('title', 'published', 'get_categories', 'get_tags')
     readonly_fields = ('created_by', 'created_at', 'modified_by', 'modified_at', 'slug',)
     exclude = ('user',)
     save_on_top = True
@@ -36,6 +36,14 @@ class PostAdmin(admin.ModelAdmin):
         obj.slug = slugify(obj.title)
 
         obj.save()
+
+    @staticmethod
+    def get_categories(obj):
+        return "\n".join([category.title for category in obj.category.all()])
+
+    @staticmethod
+    def get_tags(obj):
+        return ", ".join([tag.title for tag in obj.tag.all()])
 
 
 admin.site.register(Post, PostAdmin)

@@ -130,7 +130,7 @@ body {
     color: #6A0E0E;
 }
 
- .read-more:focus, .read-more:hover {
+.read-more:focus, .read-more:hover {
     background: #F1FFF7;
     color: #BA2121;
 }

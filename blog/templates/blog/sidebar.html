@@ -4,27 +4,31 @@
             {% if not query %}
                 <input type="text" name="q" id="search" class="form-control" placeholder="Search" value="" autofocus>
             {% else %}
-                <input type="text" name="q" id="search" class="form-control" placeholder="Search" value="{{ query }}" autofocus>
+                <input type="text" name="q" id="search" class="form-control" placeholder="Search" value="{{ query }}"
+                       autofocus>
             {% endif %}
         </div>
     </form>
     <h3>Categories</h3>
     <div class="list-group">
-    {% for category in category_list %}
-        <a href="{{ category.get_absolute_url }}" class="list-group-item">
-                <span class="badge post-count">{{ category.category_post.count }}</span>
-                <span class="category-name">{{ category.title }}</span>
-        </a>
-    {% endfor %}
+        {% for category, count in category_post %}
+            {% if count > 0 %}
+                <a href="{{ category.get_absolute_url }}" class="list-group-item">
+                    <span class="badge post-count">{{ count }}</span>
+                    <span class="category-name">{{ category.title }}</span>
+                </a>
+            {% endif %}
+        {% endfor %}
     </div>
-
     <h3>Tags</h3>
     <div class="list-group">
-    {% for tag in tag_list %}
-        <a href="{{ tag.get_absolute_url }}" class="list-group-item">
-                <span class="badge post-count">{{ tag.tag_post.count }}</span>
-                <span class="category-name">{{ tag.title }}</span>
-        </a>
-    {% endfor %}
+        {% for tag, count in tag_post %}
+            {% if count > 0 %}
+                <a href="{{ tag.get_absolute_url }}" class="list-group-item">
+                    <span class="badge post-count">{{ count }}</span>
+                    <span class="category-name">{{ tag.title }}</span>
+                </a>
+            {% endif %}
+        {% endfor %}
     </div>
 </div>
