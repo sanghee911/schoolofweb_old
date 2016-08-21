@@ -7,7 +7,7 @@ $(window).on('load', function () {
 
     var circleLogo = $('#circle-logo');
 
-    $('#preloader-div').delay(300).fadeOut("slow", function () {
+    $('#preloader-div').delay(1000).fadeOut("slow", function () {
         var logoSrc = circleLogo.attr('src');
         circleLogo.attr('src', logoSrc);
     });

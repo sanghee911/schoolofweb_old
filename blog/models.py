@@ -20,7 +20,7 @@ class Post(models.Model):
     content = RichTextUploadingField(verbose_name='내용', null=True, blank=True)
     category = models.ManyToManyField('Category', related_name='category_post', blank=True)
     tag = models.ManyToManyField('Tag', related_name='tag_post', blank=True)
-    thumbnail = models.ImageField(null=True, blank=True, upload_to='thumbnail/')
+    thumbnail = models.ImageField(upload_to='thumbnail/')
     created_by = models.ForeignKey(User, verbose_name='작성자', related_name='created_by', null=True, blank=True)
     created_at = models.DateTimeField(verbose_name='작성일시', blank=True, null=True)
     modified_by = models.ForeignKey(User, verbose_name='수정자', related_name='modified_by', null=True, blank=True)

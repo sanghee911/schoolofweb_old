@@ -15,7 +15,7 @@
         </h2>
         {% include 'blog/meta.html' %}
         <div class="excerpt">
-            {{ post.content | safe | truncatechars_html:200 }}
+            {{ post.content | safe | truncatechars_html:300 }}
         </div>
         <a class="read-more" href="{{ post.get_absolute_url }}">Read more</a>
     </div>
