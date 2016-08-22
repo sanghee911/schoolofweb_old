@@ -13,7 +13,6 @@
     <meta name="og:description" content="{{ meta_description }}"/>
     <meta name="keywords" content="{{ meta_keywords }}"/>
     <meta name="author" content="{{ meta_author }}"/>
-    <meta property="author" content="{{ meta_author }}"/>
     <meta name="og:url" content="{{ meta_url }}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:image" content="http://schoolofweb.net/static/common/img/schoolofweb_logo.png"/>
@@ -25,6 +24,16 @@
     {% block js-top %}{% endblock js-top %}
 </head>
 <body class="{{ page }}">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 {% include 'common/navbar.html' %}
 {% block content %}{% endblock content %}
 <script src="{% static 'common/js/jquery-3.1.0.min.js' %}"></script>
