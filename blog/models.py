@@ -23,9 +23,9 @@ class Post(models.Model):
     tag = models.ManyToManyField('Tag', related_name='tag_post', blank=True)
     thumbnail = models.ImageField(upload_to='thumbnail/')
     created_by = models.ForeignKey(User, verbose_name='작성자', related_name='created_by', null=True, blank=True)
-    created_at = models.DateTimeField(verbose_name='작성일시', blank=True, null=True)
+    created_at = models.DateTimeField(verbose_name='작성일시', auto_now_add=True)
     modified_by = models.ForeignKey(User, verbose_name='수정자', related_name='modified_by', null=True, blank=True)
-    modified_at = models.DateTimeField(verbose_name='수정일시', blank=True, null=True)
+    modified_at = models.DateTimeField(verbose_name='수정일시', auto_now=True)
     published = models.CharField(max_length=20, choices=choices, default='draft')
     published_time = models.DateTimeField(verbose_name='공개 일시', blank=True, null=True)
     user = models.ForeignKey(User, related_name='user', null=True, blank=True)
@@ -40,6 +40,16 @@ class Post(models.Model):
         hitcount_obj = HitCount.objects.get_for_object(self)
         hits = hitcount_obj.hits
         return hits
+
+    def get_next(self):
+        new_posts = Post.objects.filter(published='published').filter(published_time__gt=self.published_time)
+        if new_posts:
+            return new_posts.last()
+
+    def get_previous(self):
+        old_posts = Post.objects.filter(published='published').filter(published_time__lt=self.published_time)
+        if old_posts:
+            return old_posts.first()
 
 
 class Category(models.Model):

@@ -25,13 +25,13 @@ class PostAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if not change:
             obj.created_by = request.user
-            obj.created_at = datetime.now()
+            # obj.created_at = datetime.now()
             obj.modified_by = request.user
-            obj.modified_at = datetime.now()
+            # obj.modified_at = datetime.now()
             obj.user = request.user
         else:
             obj.modified_by = request.user
-            obj.modified_at = datetime.now()
+            # obj.modified_at = datetime.now()
 
         obj.slug = slugify(obj.title)
 
