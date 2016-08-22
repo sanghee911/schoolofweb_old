@@ -21,7 +21,7 @@
     {% block js-top %}{% endblock js-top %}
 </head>
 <body class="{{ page }}">
-<div id="fb-root"></div>
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -30,6 +30,7 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
 {% include 'common/navbar.html' %}
 {% block content %}{% endblock content %}
 <script src="{% static 'common/js/jquery-3.1.0.min.js' %}"></script>
