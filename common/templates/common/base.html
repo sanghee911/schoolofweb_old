@@ -7,12 +7,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SchoolofWeb :: {% block title %}{% endblock title %}</title>
-    <meta name="og:title" content="SchoolofWeb :: {{ meta_title }}">
-    <meta name="description" content="{{ meta_description }}">
-    <meta name="keywords" content="{{ meta_keywords }}">
-    <meta name="author" content="{{ meta_author }}">
-    <meta name="og:url" content="{{ meta_url }}">
-    <link rel="icon" type="image/png" href="{% static 'common/img/favicon.png' %}">
+    <meta name="og:title" content="SchoolofWeb :: {{ meta_title }}"/>
+    <meta name="description" content="{{ meta_description }}"/>
+    <meta name="keywords" content="{{ meta_keywords }}"/>
+    <meta name="author" content="{{ meta_author }}"/>
+    <meta name="og:url" content="{{ meta_url }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="{% static 'common/img/schoolofweb_logo.png' %}"/>
+    <link rel="icon" type="image/png" href="http://schoolofweb/static/common/img/favicon.png">
     <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'common/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'common/css/base.css' %}">
@@ -21,17 +23,6 @@
     {% block js-top %}{% endblock js-top %}
 </head>
 <body class="{{ page }}">
-
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 {% include 'common/navbar.html' %}
 {% block content %}{% endblock content %}
 <script src="{% static 'common/js/jquery-3.1.0.min.js' %}"></script>
