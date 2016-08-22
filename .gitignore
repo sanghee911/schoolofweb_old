@@ -5,4 +5,4 @@ db.sqlite3
 .idea
 */migrations/0*
 venv
-settings.py
+schoolofweb/settings.py
