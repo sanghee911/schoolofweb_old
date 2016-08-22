@@ -17,6 +17,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    keywords = models.TextField(null=True, blank=True)
     content = RichTextUploadingField(verbose_name='내용', null=True, blank=True)
     category = models.ManyToManyField('Category', related_name='category_post', blank=True)
     tag = models.ManyToManyField('Tag', related_name='tag_post', blank=True)

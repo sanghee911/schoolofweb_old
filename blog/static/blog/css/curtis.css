@@ -33,7 +33,7 @@ pre {
     /*color: #333;*/
     /*color: #f48615;*/
     color: #f48615;  /*pycharm-orange*/
-    /**color: #008000;  !*django-green*!*/
+    /*color: #008000;*/ /*django-green*/
     font-weight: bold
 }
 
@@ -55,7 +55,8 @@ pre {
 .hljs-id,
 .coffeescript .hljs-params,
 .scss .hljs-preprocessor {
-    color: #900;
+    /*color: #900;*/
+    color: lightseagreen;
     font-weight: bold
 }
 
