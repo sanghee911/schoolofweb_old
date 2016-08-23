@@ -42,11 +42,15 @@ class Post(models.Model):
         return hits
 
     def get_next(self):
+        if not self.published == 'published':
+            return None
         new_posts = Post.objects.filter(published='published').filter(published_time__gt=self.published_time)
         if new_posts:
             return new_posts.last()
 
     def get_previous(self):
+        if not self.published == 'published':
+            return None
         old_posts = Post.objects.filter(published='published').filter(published_time__lt=self.published_time)
         if old_posts:
             return old_posts.first()
