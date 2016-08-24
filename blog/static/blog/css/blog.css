@@ -159,6 +159,9 @@ pre {
     color: #0C4B33;
     padding: 15px 20px;
 }
+pre span.go {
+    color: #808080;
+}
 p code {
     padding: 0;
     font-size: 1em;
