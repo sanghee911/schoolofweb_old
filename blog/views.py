@@ -108,7 +108,7 @@ class PostDetailView(HitCountDetailView):
         context['meta_title'] = self.object.title
         context['meta_description'] = self.object.description
         context['meta_keywords'] = self.object.keywords
-        context['meta_author'] = '이상희 | Sanghee Lee'
+        context['meta_author'] = '이상희 Sanghee Lee'
         context['meta_url'] = self.request.build_absolute_uri
 
         return context
@@ -164,7 +164,7 @@ class CategoryDetailView(DetailView):
         context['meta_title'] = 'Blog'
         context['meta_description'] = '웹 개발, 서버 관리, 하드웨어 등의 무료 인터넷 강좌를 제공하는 블로그 사이트 입니다.'
         context['meta_keywords'] = '무료 인터넷 강좌, 파이썬, 장고, 리눅스, Python, Django, Linux'
-        context['meta_author'] = '이상희 | Sanghee Lee'
+        context['meta_author'] = '이상희 Sanghee Lee'
         context['meta_url'] = self.request.build_absolute_uri
 
         return context
@@ -220,7 +220,7 @@ class TagDetailView(DetailView):
         context['meta_title'] = 'Blog'
         context['meta_description'] = '웹 개발, 서버 관리, 하드웨어 등의 무료 인터넷 강좌를 제공하는 블로그 사이트 입니다.'
         context['meta_keywords'] = '무료 인터넷 강좌, 파이썬, 장고, 리눅스, Python, Django, Linux'
-        context['meta_author'] = '이상희 | Sanghee Lee'
+        context['meta_author'] = '이상희 Sanghee Lee'
         context['meta_url'] = self.request.build_absolute_uri
 
         return context
