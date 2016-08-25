@@ -38,6 +38,9 @@ class PostListView(ListView):
         context['query'] = self.request.GET.get('q')
         context['now'] = timezone.now()
         context['page'] = 'blog'
+        context['recent_updates'] = Post.objects \
+                                       .filter(published='published') \
+                                       .filter(published_time__lte=now)[:5]
         queries_without_page = self.request.GET.copy()
 
         if 'page' in queries_without_page:
@@ -85,7 +88,9 @@ class PostDetailView(HitCountDetailView):
         context['page_type'] = 'single'
         context['query'] = self.request.GET.get('q')
         context['page'] = 'blog'
-
+        context['recent_updates'] = Post.objects\
+            .filter(published='published')\
+            .filter(published_time__lte=now)[:5]
         context['category_post'] = []
         for category in context['category_list']:
             if self.request.user.is_superuser:
@@ -141,6 +146,9 @@ class CategoryDetailView(DetailView):
         context['now'] = timezone.now()
         context['query'] = self.request.GET.get('q')
         context['page'] = 'blog'
+        context['recent_updates'] = Post.objects \
+                                       .filter(published='published') \
+                                       .filter(published_time__lte=now)[:5]
 
         context['category_post'] = []
         for category in context['category_list']:
@@ -197,6 +205,9 @@ class TagDetailView(DetailView):
         context['now'] = timezone.now()
         context['query'] = self.request.GET.get('q')
         context['page'] = 'blog'
+        context['recent_updates'] = Post.objects \
+                                       .filter(published='published') \
+                                       .filter(published_time__lte=now)[:5]
 
         context['category_post'] = []
         for category in context['category_list']:

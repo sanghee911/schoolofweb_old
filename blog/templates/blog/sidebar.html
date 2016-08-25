@@ -1,3 +1,4 @@
+{% load disqus_tags %}
 <div class="col-md-4 sidebar">
     <form role="search" action="{% url 'blog:post_list' %}">
         <div class="form-group">
@@ -9,8 +10,8 @@
             {% endif %}
         </div>
     </form>
-    <h3>Categories</h3>
     <div class="list-group">
+        <h3>Categories</h3>
         {% for category, count in category_post %}
             {% if count > 0 %}
                 <a href="{{ category.get_absolute_url }}" class="list-group-item">
@@ -20,8 +21,8 @@
             {% endif %}
         {% endfor %}
     </div>
-    <h3>Tags</h3>
     <div class="list-group">
+        <h3>Tags</h3>
         {% for tag, count in tag_post %}
             {% if count > 0 %}
                 <a href="{{ tag.get_absolute_url }}" class="list-group-item">
@@ -30,5 +31,19 @@
                 </a>
             {% endif %}
         {% endfor %}
+    </div>
+    <div class="recent-updates">
+        <h3>Recent Updates</h3>
+        <ul>
+            {% for post in recent_updates %}
+            <li>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="recent-comments">
+        <h3>Recent Comments</h3>
+        {% disqus_recent_comments 'schoolofweb' 10 50 1 %}
     </div>
 </div>

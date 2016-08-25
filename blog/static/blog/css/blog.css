@@ -28,6 +28,15 @@ p {
     padding: 50px;
 }
 
+.sidebar h3 {
+    margin-top: 30px;
+    padding-bottom: 15px;
+}
+
+.sidebar .recent-updates h3, .sidebar .recent-comments h3 {
+    border-bottom: 1px solid #CFE3DC;
+}
+
 #search {
     margin-top: 50px;
     transition: none;
@@ -38,6 +47,15 @@ p {
     border: 1px solid #44B78B;
     outline: none;
     box-shadow: none;
+}
+
+a.list-group-item, button.list-group-item {
+    color: #0C3C26;
+}
+
+a.list-group-item:hover {
+    color: #44B78B;
+    background-color: white;
 }
 
 .list-group-item a > .badge {
@@ -58,6 +76,30 @@ p {
 .sidebar .post-count {
     background-color: #C9F0DD;
     color: #0C4B33;
+}
+
+.sidebar .recent-updates ul {
+    list-style-position: inside;
+    padding-left:0;
+}
+
+.sidebar .recent-updates li {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+.sidebar .recent-updates a {
+    text-decoration: underline;
+}
+
+.sidebar .recent-updates a:active,
+.sidebar .recent-updates a:focus,
+.sidebar .recent-updates a:hover,
+.sidebar .recent-comments a:active,
+.sidebar .recent-comments a:focus,
+.sidebar .recent-comments a:hover {
+    color: #1d915c;
 }
 
 .pagination {
@@ -226,6 +268,10 @@ p code {
 }
 .next-post i {
     margin-left: 4px;
+}
+.disqus {
+    height: 300px;
+    overflow-y: scroll;
 }
 
 /* media query */
