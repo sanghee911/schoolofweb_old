@@ -12,3 +12,8 @@ def home(request):
         'meta_url': request.build_absolute_uri,
     }
     return render(request, 'common/home.html', context)
+
+
+def custom_404(request):
+
+    return render(request, 'common/404.html')

@@ -6,3 +6,5 @@ db.sqlite3
 */migrations/0*
 venv
 schoolofweb/settings.py
+static
+media
