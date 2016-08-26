@@ -41,8 +41,8 @@
                         이미 CMS로써 만들어진 WordPress를 커스터마이징 하는 것 보다는 MVC framework인 <span class="green-gray">Django</span>로 직접
                         기능을 하나 하나 추가하며 자신만의 CMS를 만드는 것이 더 재밌었다.
                         웹 서버 또한 Shared hosting 서버를 빌려 쓰다가 VPC (Virtual Private Cloud) 서버로 마이그레이션 하였다.
-                        지금까지 아파치와 MySQL을 사용했었는데, 처음으로 NGINX 웹 서버와 PostgreSQL을 사용해 봤다.
-                        NGINX 와 PostgreSQL 조합이 대세라하여 도입해 보았는데 퍼포먼스면에서 어느 정도 뛰어난지는 아직 잘 모르겠다.
+                        지금까지는 아파치, mod_wsgi 조합과 함께 MySQL을 사용했었는데, 처음으로 NGINX, Gunicorn 조합과 PostgreSQL을 사용해 봤다.
+                        장고 어플리케이션의 스탠다드 구성이 되가고 있는 조합이라고 할 수 있는데, 퍼포먼스면에서 어느 정도 뛰어난지는 아직 잘 모르겠다.
                         하지만 NGINX 의 구성 파일인 nginx.conf 은 파이썬의 사전이나 JSON 형식의 트리 구성을 가지고 있어 아파치의 어려운 구성 파일보다 구문도 더 깔끔하고 알기
                         쉬운 것 같다. 패키지 설치, 웹서버, 데이터베이스 구축 및 DNS, Firewall 설정 등을 하나 부터 열까지 다 해야 하는 점에서 조금은 귀찮은 점이 있었으나,
                         여러가지로 공부가 되는 부분도 많았다.
