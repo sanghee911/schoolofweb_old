@@ -200,11 +200,12 @@ pre {
     border: 1px solid #EAEAEA;
     color: #0C4B33;
     padding: 15px 20px;
+    font-size: 1em;
 }
 pre span.go {
     color: #808080;
 }
-p code {
+p code, li code {
     padding: 0;
     font-size: 1em;
     font-family: Menlo, Monaco, "Courier New", Courier, monospace;
