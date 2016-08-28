@@ -1,7 +1,7 @@
 <div class="article-meta">
     <img class="img-author img-circle" src="{{ post.user.profile.profile_picture.url }}" alt="">
     <span class="author">Written by {{ post.created_by.profile.full_name }}</span> |
-    <span class="published-date">{{ post.created_at | date:"M d, Y" | upper }}</span> |
+    <span class="published-date">{{ post.published_time | date:"M d, Y" | upper }}</span> |
     <span>{{ post.hitcount }} views</span>
     {% if user.is_superuser %}
         | <span class="post-status">{{ post.published }}</span>
