@@ -1,8 +1,12 @@
 {% extends 'blog/blog_base.html' %}
+{% load helper_tags %}
 {% load staticfiles %}
 {% load hitcount_tags %}
 {% load disqus_tags %}
 {% block title %}{{ object.title }}{% endblock title %}
+{% block meta-image %}
+<meta property="og:image" content="{{ post.thumbnail.url }}"/>
+{% endblock meta-image %}
 {% block css %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">

@@ -4,7 +4,7 @@ db.sqlite3
 .DS_Store
 .idea
 */migrations/0*
-venv
+/venv
 schoolofweb/settings.py
-static
-media
+/static
+/media
