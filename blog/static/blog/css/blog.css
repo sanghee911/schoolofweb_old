@@ -199,7 +199,7 @@ hr {
 pre {
     border: 1px solid #EAEAEA;
     color: #0C4B33;
-    padding: 15px 20px;
+    /*padding: 15px 20px;*/
     font-size: 1em;
 }
 pre span.go {
