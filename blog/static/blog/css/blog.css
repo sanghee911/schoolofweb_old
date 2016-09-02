@@ -201,6 +201,11 @@ pre {
     color: #0C4B33;
     /*padding: 15px 20px;*/
     font-size: 1em;
+    margin: 20px 0;
+    padding: 10px;
+}
+pre code[class*="language"] {
+    padding: 0;
 }
 pre span.go {
     color: #808080;
@@ -232,6 +237,7 @@ p code, li code {
 .highlight {
     border: 1px solid #EAEAEA;
     border-radius: 0 0 4px 4px;
+    margin-top: 0;
 }
 
 .prev-next {
