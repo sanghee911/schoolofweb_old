@@ -1,0 +1,33 @@
+{% extends 'blog/blog_base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% load paginator_tags %}
+{% block title %}
+    {% if page_type == 'category' %}
+        Category :: {{ category_title }}
+    {% elif page_type == 'tag' %}
+        Tag :: {{ tag_title }}
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    <div class="container-fluid category-detail">
+        <div class="row">
+            <div class="col-md-8 main">
+                {% if page_type == 'category' %}
+                    <h4 class="page-title">Category :: {{ category_title }}</h4>
+                {% elif page_type == 'tag' %}
+                    <h4 class="page-title">Tag :: {{ tag_title }}</h4>
+                {% endif %}
+                {% if post_list.count > 0 %}
+                    {% for post in post_list %}
+                        {% include 'blog/post_list_row.html' %}
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning no-post" role="alert">포스트가 없습니다.</div>
+                {% endif %}
+                {% get_pagination %}
+            </div>
+            {% include 'blog/sidebar.html' %}
+        </div>
+    </div>
+{% endblock content %}

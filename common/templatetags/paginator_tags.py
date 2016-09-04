@@ -16,7 +16,7 @@ def get_pagination(context):
     total_pages = paginator.num_pages
     current_page = page_obj.number
     total_range = range(1, total_pages + 1)
-    queries = context['queries']
+    queries = context.get('queries')
 
     # if pages less than 10, display all pages
     if total_pages < 10:
