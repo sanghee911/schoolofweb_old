@@ -20,7 +20,7 @@ p {
 }
 .main {
     background-color: #FFF;
-    box-shadow: -1000px 0 0 #FFF;
+    box-shadow: -500px 0 0 #FFF;
 }
 .navbar {
     margin: 0;
