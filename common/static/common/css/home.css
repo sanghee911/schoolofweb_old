@@ -11,7 +11,9 @@ header {
     width: 100%;
     /*z-index: -100;*/
 }
-
+.container-fluid {
+    max-width: 1400px;
+}
 #bg-image {
     background-image: url("../img/header_items_50_1920x1200.jpg");
     position: fixed;
