@@ -287,6 +287,21 @@ span.text-hl-green {
     color: limegreen;
 }
 
+.excerpt p a,
+.excerpt li a {
+    color: #6A0E0E;
+    text-decoration: none;
+    border-bottom: 1px dotted #798780;
+}
+
+.excerpt p a:focus,
+.excerpt p a:hover,
+.excerpt li a:focus,
+.excerpt li a:hover {
+    background: #F1FFF7;
+    color: #BA2121;
+}
+
 /* media query */
 @media screen and (max-width: 767px) {
     .article-thumbnail {
