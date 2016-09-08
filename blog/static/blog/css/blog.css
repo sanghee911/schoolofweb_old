@@ -283,6 +283,10 @@ p code, li code {
     overflow-y: scroll;
 }
 
+span.text-hl-green {
+    color: limegreen;
+}
+
 /* media query */
 @media screen and (max-width: 767px) {
     .article-thumbnail {
