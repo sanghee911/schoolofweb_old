@@ -26,23 +26,23 @@
     <link rel="stylesheet" href="{% static 'common/css/navbar.css' %}">
     {% block css %}{% endblock css %}
     {% block js-top %}{% endblock js-top %}
-    <script>
-        function adjustSidebarHeight() {
-            if (window.matchMedia('(min-width: 992px)').matches) {
-                var docHeight = $(document).height();
-                $('.sidebar').height(docHeight - 100);
-            }
-        }
-
-        function disqus_config() {
-            this.callbacks.onNewComment = [function () {
-                adjustSidebarHeight();
-            }];
-            this.callbacks.onReady = [function () {
-                adjustSidebarHeight();
-            }];
-        }
-    </script>
+{#    <script>#}
+{#        function adjustSidebarHeight() {#}
+{#            if (window.matchMedia('(min-width: 992px)').matches) {#}
+{#                var docHeight = $(document).height();#}
+{#                $('.sidebar').height(docHeight - 100);#}
+{#            }#}
+{#        }#}
+{##}
+{#        function disqus_config() {#}
+{#            this.callbacks.onNewComment = [function () {#}
+{#                adjustSidebarHeight();#}
+{#            }];#}
+{#            this.callbacks.onReady = [function () {#}
+{#                adjustSidebarHeight();#}
+{#            }];#}
+{#        }#}
+{#    </script>#}
 </head>
 <body class="{{ page }}" id="page-top">
 
