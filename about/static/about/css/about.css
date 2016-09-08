@@ -2,6 +2,9 @@
 /* django-dark-green #0C4B33 */
 /* django-green #44B78B */
 /* django-light-green #C9F0DD */
+.container-fluid {
+    max-width: 1400px;
+}
 .about-header-img {
     width: 100%;
     display: block;
