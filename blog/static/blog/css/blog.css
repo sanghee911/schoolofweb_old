@@ -9,12 +9,19 @@ body, h1, h2, h3, h4, h5, h6, p, a {
 body {
     margin: 0;
     padding: 0;
+    background-color: #F8F8F8;
 }
 
 p {
     margin: 1em 0;
 }
-
+.container-fluid {
+    max-width: 1400px;
+}
+.main {
+    background-color: #FFF;
+    box-shadow: -1000px 0 0 #FFF;
+}
 .navbar {
     margin: 0;
 }
