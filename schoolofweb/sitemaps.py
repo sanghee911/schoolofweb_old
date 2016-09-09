@@ -1,8 +1,8 @@
-from django.contrib.sitemaps import Sitemap
-from django.utils import timezone
 from blog.models import Post
+from django.contrib.sitemaps import Sitemap
 from django.contrib import sitemaps
 from django.urls import reverse
+from django.utils import timezone
 
 
 class BlogSitemap(Sitemap):
