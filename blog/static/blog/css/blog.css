@@ -231,11 +231,11 @@ pre span.go {
     color: #808080;
 }
 pre span.prompt {
-    color: #FA8072;
+    color: orangered;
     /*font-weight: bold;*/
 }
 pre span.command {
-    color: #4169E1;
+    color: dodgerblue;
     /*font-weight: bold;*/
 }
 p code, li code {

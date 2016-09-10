@@ -32,7 +32,8 @@ pre {
 .hljs-status {
     /*color: #333;*/
     /*color: #f48615;*/
-    color: #008000; /*django-green*/
+    /*color: #008000; django-green*/
+    color: midnightblue;
     font-weight: bold
 }
 
@@ -46,8 +47,9 @@ pre {
 .hljs-tag .hljs-value,
 .hljs-phpdoc,
 .tex .hljs-formula {
-    color: #d14
+    /*color: #d14*/
     /*color: #1e7a15;*/
+    color: orangered;
 }
 
 .hljs-title,
@@ -56,8 +58,9 @@ pre {
 .scss .hljs-preprocessor {
     /*color: #900;*/
     /*color: lightseagreen;*/
-    color: #00f;
+    /*color: #00f;*/
     /*font-weight: bold*/
+    color: dodgerblue;
 }
 
 .javascript .hljs-title,
@@ -98,7 +101,8 @@ pre {
 .lisp .hljs-keyword,
 .tex .hljs-special,
 .hljs-prompt {
-    color: #990073
+    /*color: #990073*/
+    color: orangered;
 }
 
 .hljs-built_in,
