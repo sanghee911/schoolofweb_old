@@ -232,11 +232,11 @@ pre span.go {
 }
 pre span.prompt {
     color: #FA8072;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 pre span.command {
     color: #4169E1;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 p code, li code {
     padding: 0;
