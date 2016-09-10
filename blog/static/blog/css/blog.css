@@ -12,8 +12,19 @@ body {
     background-color: #F8F8F8;
 }
 
+section {
+    padding: 10px 0 20px;
+}
+
+section:not(:last-child) {
+    border-bottom: 1px solid #CFE3DC;
+}
+
 p {
     margin: 1em 0;
+}
+h2 {
+    font-size: 27px;
 }
 .container-fluid {
     max-width: 1400px;
@@ -218,6 +229,14 @@ pre code.hljs {
 }
 pre span.go {
     color: #808080;
+}
+pre span.prompt {
+    color: #FA8072;
+    font-weight: bold;
+}
+pre span.command {
+    color: #4169E1;
+    font-weight: bold;
 }
 p code, li code {
     padding: 0;

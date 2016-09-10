@@ -17,7 +17,7 @@ TO_FIELD_VAR = '_to_field'
 
 class PostAdmin(admin.ModelAdmin):
 
-    list_display = ('title', 'published', 'get_categories', 'get_tags')
+    list_display = ('title', 'published', 'modified_at', 'get_categories', 'get_tags')
     readonly_fields = ('created_by', 'created_at', 'modified_by', 'modified_at', 'slug',)
     exclude = ('user',)
     save_on_top = True

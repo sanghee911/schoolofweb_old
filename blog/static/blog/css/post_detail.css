@@ -1,5 +1,5 @@
 .content-block {
-    margin: 50px 0;
+    margin: 30px 0;
 }
 
 note, .admonition, .help-block {
@@ -63,4 +63,10 @@ note, .admonition, .help-block {
 .content-block li a:hover {
     background: #F1FFF7;
     color: #BA2121;
+}
+
+.content-block img {
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.30);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.30);
 }
