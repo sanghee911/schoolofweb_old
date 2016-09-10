@@ -66,7 +66,7 @@ note, .admonition, .help-block {
 }
 
 .content-block img {
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.30);
-    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.30);
-    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.30);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
 }
