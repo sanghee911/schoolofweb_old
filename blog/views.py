@@ -8,7 +8,7 @@ from .models import Post, Category, Tag
 
 class PostListView(ListView):
     model = Post
-    paginate_by = 5
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         now = timezone.now()
@@ -121,7 +121,7 @@ class PostDetailView(HitCountDetailView):
 class CatTagListView(ListView):
     model = Post
     template_name = 'blog/cat_tag_list.html'
-    paginate_by = 5
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         now = timezone.now()
