@@ -333,7 +333,11 @@ span.text-hl-green {
     .article-thumbnail {
         margin-bottom: 20px;
     }
+    .main, .sidebar {
+        padding: 15px;
+    }
 }
+
 
 
 
