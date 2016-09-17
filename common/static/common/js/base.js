@@ -72,7 +72,7 @@ $(document).ready(function () {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 300, 'easeInExpo');
+        }, 800, 'easeInExpo');
         event.preventDefault();
     });
 
