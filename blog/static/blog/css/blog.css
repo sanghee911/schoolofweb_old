@@ -26,6 +26,12 @@ p {
 h2 {
     font-size: 27px;
 }
+blockquote {
+    font-size: 16px;
+}
+ul {
+    padding-left: 2em;
+}
 .container-fluid {
     max-width: 1400px;
 }
