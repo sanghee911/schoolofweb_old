@@ -48,7 +48,7 @@ class PostListView(ListView):
 
         # meta content
         context['meta_title'] = 'Blog'
-        context['meta_description'] = '웹 개발, 프로그래밍, 서버 관리, 하드웨어 등의 무료 인터넷 강좌를 제공하는 블로그 사이트 입니다.'
+        context['meta_description'] = '웹 개발, 파이썬, 장고, 리눅스 서버 관리, 하드웨어 등의 무료 인터넷 강좌를 제공하는 블로그 사이트 입니다.'
         context['meta_keywords'] = '무료 인터넷 강좌, 파이썬, 장고, 리눅스, Python, Django, Linux'
         context['meta_author'] = '이상희, Sanghee Lee'
         context['meta_url'] = self.request.build_absolute_uri
