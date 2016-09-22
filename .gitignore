@@ -8,3 +8,4 @@ db.sqlite3
 schoolofweb/settings.py
 /static
 /media
+/assets
