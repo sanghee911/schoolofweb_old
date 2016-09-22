@@ -102,18 +102,21 @@ a.list-group-item:hover {
     color: #0C4B33;
 }
 
-.sidebar .recent-updates ul {
+.sidebar .recent-updates ul,
+.sidebar .top-5 ul {
     list-style-position: inside;
     padding-left:0;
 }
 
-.sidebar .recent-updates li {
+.sidebar .recent-updates li,
+.sidebar .top-5 li {
     list-style: none;
     padding-left: 0;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
-.sidebar .recent-updates a {
+.sidebar .recent-updates a,
+.sidebar .top-5 a {
     border-bottom: 1px solid #0C3C26;
 }
 
@@ -122,7 +125,10 @@ a.list-group-item:hover {
 .sidebar .recent-updates a:hover,
 .sidebar .recent-comments a:active,
 .sidebar .recent-comments a:focus,
-.sidebar .recent-comments a:hover {
+.sidebar .recent-comments a:hover,
+.sidebar .top-5 a:active,
+.sidebar .top-5 a:focus,
+.sidebar .top-5 a:hover {
     color: #1d915c;
     border-color: #1d915c;
 }

@@ -7,6 +7,14 @@ from django.contrib.auth.models import User
 from hitcount.models import HitCount
 
 
+class PostManager(models.Manager):
+
+    def top_five_posts(self):
+        posts = self.get_queryset().all()
+        sorted_posts = sorted(posts, key=lambda obj: obj.hitcount(), reverse=True)[:5]
+        return sorted_posts
+
+
 class Post(models.Model):
 
     class Meta:
@@ -29,6 +37,9 @@ class Post(models.Model):
     published = models.CharField(max_length=20, choices=choices, default='draft')
     published_time = models.DateTimeField(verbose_name='공개 일시', blank=True, null=True)
     user = models.ForeignKey(User, related_name='user', null=True, blank=True)
+
+    # initiate PostManager
+    objects = PostManager()
 
     def __unicode__(self):
         return self.title

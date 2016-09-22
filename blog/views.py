@@ -46,6 +46,9 @@ class PostListView(ListView):
             del queries_without_page['page']
         context['queries'] = queries_without_page
 
+        # top 5 posts
+        context['top_five_posts'] = Post.objects.top_five_posts()
+
         # meta content
         context['meta_title'] = 'Blog'
         context['meta_description'] = '웹 개발, 파이썬, 장고, 리눅스 서버 관리, 하드웨어 등의 무료 인터넷 강좌를 제공하는 블로그 사이트 입니다.'
@@ -108,6 +111,9 @@ class PostDetailView(HitCountDetailView):
             tag_post_count = tag_post.count()
             context['tag_post'].append((tag, tag_post_count))
 
+        # top 5 posts
+        context['top_five_posts'] = Post.objects.top_five_posts()
+
         # meta content
         context['meta_title'] = self.object.title
         context['meta_description'] = self.object.description
@@ -159,6 +165,9 @@ class CatTagListView(ListView):
                 tag_post = tag.tag_post.filter(published='published').filter(published_time__lte=now)
             tag_post_count = tag_post.count()
             context['tag_post'].append((tag, tag_post_count))
+
+        # top 5 posts
+        context['top_five_posts'] = Post.objects.top_five_posts()
 
         # meta content
         context['meta_title'] = 'Blog'

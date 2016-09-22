@@ -42,6 +42,16 @@
             {% endfor %}
         </ul>
     </div>
+    <div class="top-5">
+        <h3>Top 5 Posts</h3>
+        <ul>
+            {% for post in top_five_posts %}
+             <li>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }} [{{ post.hitcount }} views]</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
     <div class="recent-comments">
         <h3>Recent Comments</h3>
         {% disqus_recent_comments 'schoolofweb' 10 50 1 %}
