@@ -8,3 +8,9 @@ h2 {
 table {
     margin-bottom: 100px;
 }
+
+tfoot {
+    color: #2d489c;
+    font-weight: bold;
+    background-color: #AEFFAE;
+}

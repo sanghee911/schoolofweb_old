@@ -1,0 +1,17 @@
+{% extends 'django_tables2/table.html' %}
+
+{% block table.tfoot %}
+<tfoot>
+    <tr>
+        <td>Total</td>
+        <td>{{ total_hits.today }}</td>
+        <td>{{ total_hits.one_day_ago }}</td>
+        <td>{{ total_hits.two_days_ago }}</td>
+        <td>{{ total_hits.three_days_ago }}</td>
+        <td>{{ total_hits.four_days_ago }}</td>
+        <td>{{ total_hits.five_days_ago }}</td>
+        <td>{{ total_hits.six_days_ago }}</td>
+        <td>{{ total_hits.total }}</td>
+    </tr>
+</tfoot>
+{% endblock table.tfoot %}

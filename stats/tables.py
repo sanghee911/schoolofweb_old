@@ -1,3 +1,7 @@
+import os
+
+from django.conf import settings
+
 import django_tables2 as tables
 
 
@@ -14,3 +18,4 @@ class StatTable(tables.Table):
 
     class Meta:
         attrs = {'class': 'paleblue'}
+        template = os.path.join(settings.BASE_DIR, 'stats/templates/stats/site_stat_table.html')

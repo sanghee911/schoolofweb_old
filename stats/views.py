@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
 from django.views.generic.base import TemplateView
 from django.utils import timezone
-from .tables import StatTable
+from django_tables2 import RequestConfig
+from hitcount.models import Hit
 from blog.models import Post
+from .tables import StatTable
 
 
 class StatView(TemplateView):
@@ -36,7 +39,18 @@ class StatView(TemplateView):
             table_rows.append(week_data)
 
         table = StatTable(table_rows)
+        RequestConfig(self.request).configure(table)
+
         context['table'] = table
+        # footer data
+        context['total_hits'] = self.get_week_hitcounts()
+
+        # meta content
+        context['meta_title'] = 'schoolofweb.net Page Analytics'
+        context['meta_description'] = '웹 개발, 파이썬, 장고, 리눅스 서버 관리, 하드웨어 등의 무료 인터넷 강좌를 제공하는 블로그 사이트 입니다.'
+        context['meta_keywords'] = '무료 인터넷 강좌, 파이썬, 장고, 리눅스, Python, Django, Linux'
+        context['meta_author'] = '이상희, Sanghee Lee'
+        context['meta_url'] = self.request.build_absolute_uri
 
         return context
 
@@ -53,5 +67,23 @@ class StatView(TemplateView):
     @staticmethod
     def get_hitcount_for_days(obj, **day_dict):
         return obj.hitcount_by_date(**day_dict)
+
+    def get_week_hitcounts(self):
+        date_dict = self.get_days(7)
+        dict_keys = ['today', 'one_day_ago', 'two_days_ago', 'three_days_ago',
+                     'four_days_ago', 'five_days_ago', 'six_days_ago']
+        all_hits = {}
+        all_hit_objs = Hit.objects.all()
+        for key, date in zip(dict_keys, date_dict):
+            all_hits[key] = all_hit_objs.filter(
+                created__year=date['year'],
+                created__month=date['month'],
+                created__day=date['day']
+            ).count()
+
+        all_hits['total'] = all_hit_objs.count()
+
+        return all_hits
+
 
 
