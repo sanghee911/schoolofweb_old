@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'', include('common.urls')),
     url(r'^about/', include('about.urls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^stats/', include('stats.urls')),
 
     # thirth-party
     url(r'^ckeditor', include('ckeditor_uploader.urls')),

@@ -52,6 +52,13 @@ class Post(models.Model):
         hits = hitcount_obj.hits
         return hits
 
+    def hitcount_by_date(self, **date_dict):
+        hitcount_obj = HitCount.objects.get_for_object(self)
+        hits_by_date = hitcount_obj.hit_set.all().filter(created__year=date_dict['year'],
+                                                         created__month=date_dict['month'],
+                                                         created__day=date_dict['day'])
+        return hits_by_date.count()
+
     def get_next(self):
         if not self.published == 'published':
             return None

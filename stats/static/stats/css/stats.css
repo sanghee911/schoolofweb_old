@@ -1,0 +1,10 @@
+h2 {
+    color: #757575;
+    font: 300 34px/40px Roboto,sans-serif;
+    letter-spacing: -.01em;
+    margin: 30px 0;
+}
+
+table {
+    margin-bottom: 100px;
+}
