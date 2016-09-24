@@ -15,13 +15,13 @@ class StatView(TemplateView):
         date_dict = self.get_days(7)
         now = timezone.now()
         all_posts = Post.objects.all().filter(published='published').filter(published_time__lte=now)
-        dict_keys = ['post_title', 'today', 'one_day_ago', 'two_days_ago', 'three_days_ago',
+        dict_keys = ['post', 'today', 'one_day_ago', 'two_days_ago', 'three_days_ago',
                      'four_days_ago', 'five_days_ago', 'six_days_ago', 'total']
 
         table_rows = []
 
         for post in all_posts:
-            data_row = [post.title]
+            data_row = [post]
 
             # get week data for one post
             for date in date_dict:
