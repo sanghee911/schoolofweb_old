@@ -57,7 +57,7 @@ class StatView(TemplateView):
     @staticmethod
     def get_days(days):
         seven_days = []
-        today = timezone.now()
+        today = timezone.localtime(timezone.now())
         for i in range(days):
             date_obj = today - timezone.timedelta(days=i)
             seven_days.append({'year': date_obj.year, 'month': date_obj.month, 'day': date_obj.day})
