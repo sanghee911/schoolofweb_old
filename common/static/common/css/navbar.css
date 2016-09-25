@@ -5,6 +5,9 @@
 /* django-dark-green #0C4B33 */
 /* django-green #44B78B */
 /* django-light-green #C9F0DD */
+.navbar .container-fluid {
+    max-width: 1400px;
+}
 .navbar.navbar-default.navbar-fixed-top {
     top: 0;
     -webkit-transition: all 0.2s ease-in;
