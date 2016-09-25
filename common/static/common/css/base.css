@@ -21,6 +21,9 @@ article .cmd span.cyan {
 div.excerpt p {
     margin: 0;
 }
+div.main {
+    padding-bottom: 75px;
+}
 .text-red {
 	color: red;
 }
@@ -54,7 +57,6 @@ footer {
     position: relative;
     z-index: 100;
     background-color: black;
-    margin-top: 75px;
 }
 footer p {
     line-height: 50px;
