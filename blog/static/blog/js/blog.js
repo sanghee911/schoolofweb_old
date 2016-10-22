@@ -12,12 +12,12 @@ $(document).ready(function () {
 
     var inflearnLink = $('.inflearn a');
     inflearnLink.mouseenter(function () {
-        $('#inflearn-logo').attr('src', '/static/blog/img/inflearn_logo_purple.png');
-        console.log($(self).find('img'));
+        $('#inflearn-logo-purple').removeClass('hidden');
+        $('#inflearn-logo').addClass('hidden');
     });
     inflearnLink.mouseleave(function () {
-        $('#inflearn-logo').attr('src', '/static/blog/img/inflearn_logo.png');
-        console.log($(self).find('img'));
+        $('#inflearn-logo-purple').addClass('hidden');
+        $('#inflearn-logo').removeClass('hidden');
     });
 });
 
