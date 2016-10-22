@@ -93,6 +93,31 @@ a.list-group-item:hover {
     color: #0C4B33;
 }
 
+.sidebar-widget {
+    margin: 30px 0;
+}
+.sidebar .inflearn {
+    border: 1px solid #43b249;
+    text-align: center;
+}
+.sidebar .inflearn a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.sidebar .inflearn span {
+    display: inline-block;
+    margin-top: 10px;
+    color: #43b249;
+    font-weight: bold;
+}
+.sidebar .inflearn:hover {
+    border: 1px solid #ba4db6;
+}
+.sidebar .inflearn a:hover span {
+    color: #ba4db6;
+}
 .sidebar .recent-updates ul,
 .sidebar .top-5 ul {
     list-style-position: inside;

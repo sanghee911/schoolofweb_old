@@ -1,3 +1,4 @@
+{% load static %}
 {% load disqus_tags %}
 <div class="col-md-4 sidebar">
     <form role="search" action="{% url 'blog:post_list' %}">
@@ -10,7 +11,7 @@
             {% endif %}
         </div>
     </form>
-    <div class="list-group">
+    <div class="list-group sidebar-widget">
         <h3>Categories</h3>
         {% for category, count in category_post %}
             {% if count > 0 %}
@@ -21,7 +22,7 @@
             {% endif %}
         {% endfor %}
     </div>
-    <div class="list-group">
+    <div class="list-group sidebar-widget">
         <h3>Tags</h3>
         {% for tag, count in tag_post %}
             {% if count > 0 %}
@@ -32,10 +33,7 @@
             {% endif %}
         {% endfor %}
     </div>
-    <div class="amazon-ad">
-        <iframe src="//rcm-fe.amazon-adsystem.com/e/cm?t=curtis91107-22&o=9&p=12&l=ur1&category=pc_store&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;max-width:800px;max-height:600px;" frameborder="0"></iframe>
-    </div>
-    <div class="recent-updates">
+    <div class="recent-updates sidebar-widget">
         <h3>Recent Updates</h3>
         <ul>
             {% for post in recent_updates %}
@@ -45,7 +43,7 @@
             {% endfor %}
         </ul>
     </div>
-    <div class="top-5">
+    <div class="top-5 sidebar-widget">
         <h3>Top 5 Posts</h3>
         <ul>
             {% for post in top_five_posts %}
@@ -55,11 +53,14 @@
             {% endfor %}
         </ul>
     </div>
+    <div class="inflearn sidebar-widget">
+        <a href="https://www.inflearn.com/">
+            <img id="inflearn-logo" src="{% static 'blog/img/inflearn_logo.png' %}" alt="">
+            <span>인프런에서 코딩을 배우세요.</span>
+        </a>
+    </div>
     <div class="recent-comments">
         <h3>Recent Comments</h3>
         {% disqus_recent_comments 'schoolofweb' 10 50 1 %}
-    </div>
-    <div class="amazon-ad">
-        <iframe src="//rcm-fe.amazon-adsystem.com/e/cm?t=curtis91107-22&o=9&p=12&l=ur1&category=petproducts&banner=1B5NV1E06PDQR9Z97982&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;max-width:800px;max-height:600px;" frameborder="0"></iframe>
     </div>
 </div>
