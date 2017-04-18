@@ -5,8 +5,6 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import BlogSitemap, StaticViewSitemap
 
-from about.views import youtube
-
 
 sitemaps = {
     'blog': BlogSitemap,
@@ -24,7 +22,6 @@ urlpatterns = [
     url(r'^about/', include('about.urls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^stats/', include('stats.urls')),
-    url(r'^googlea0654b154e47fe7a.html', youtube),
 
     # thirth-party
     url(r'^ckeditor', include('ckeditor_uploader.urls')),
