@@ -12,3 +12,7 @@ def about(request):
         'meta_url': request.build_absolute_uri,
     }
     return render(request, 'about/about.html', context)
+
+
+def youtube(request):
+    return render(request, 'about/youtube.html')
