@@ -14,7 +14,7 @@ class UserProfile(models.Model):
 
     def save(self, *args, **kwargs):
         #self.full_name = self.user.first_name + ' ' + self.user.last_name
-        self.full_name = self.user.last_name + ' ' + self.user.first_name
+        self.full_name = self.user.last_name + self.user.first_name
         super(UserProfile, self).save(*args, **kwargs)
 
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
