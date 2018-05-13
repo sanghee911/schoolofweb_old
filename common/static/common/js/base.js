@@ -13,6 +13,7 @@ $(window).on('load', function () {
     });
 });
 
+document.addEventListener('touchstart', handler, {capture: true});
 
 $(document).ready(function () {
 
